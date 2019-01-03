@@ -28,8 +28,6 @@ namespace FileClusterRenamer.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-
             var fileBrowser = new System.Windows.Forms.FolderBrowserDialog();
             //fileBrowser.CheckFileExists;
             //fileBrowser.CheckPathExists;
