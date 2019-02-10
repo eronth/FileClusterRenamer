@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FileClusterRenamer.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FileClusterRenamer
 {
@@ -23,11 +11,12 @@ namespace FileClusterRenamer
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new FileClusterRenamerViewModel();
         }
 
         private void FileClusterViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            FileClusterRenamer.ViewModel.FileClusterRenamerViewModel fileClusterRenamerViewModelObject = new FileClusterRenamer.ViewModel.FileClusterRenamerViewModel();
+            FileClusterRenamerViewModel fileClusterRenamerViewModelObject = new FileClusterRenamerViewModel();
             fileClusterRenamerViewModelObject.LoadFileCluster();
 
             FileClusterViewControl.DataContext = fileClusterRenamerViewModelObject;

@@ -16,3 +16,8 @@ S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\obj\Debug\FileCl
 S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\obj\Debug\FileClusterRenamer.csproj.CoreCompileInputs.cache
 S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\obj\Debug\FileClusterRenamer.exe
 S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\obj\Debug\FileClusterRenamer.pdb
+S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\bin\Debug\Microsoft.WindowsAPICodePack.dll
+S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\bin\Debug\Microsoft.WindowsAPICodePack.xml
+S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+S:\Visual Studio Projects\FileClusterRenamer\FileClusterRenamer\obj\Debug\FileClusterRenamer.csproj.CopyComplete
