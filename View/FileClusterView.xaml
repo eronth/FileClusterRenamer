@@ -27,19 +27,22 @@
                     </StackPanel>
                 </Expander>
             </StackPanel>
-            <ItemsControl ItemsSource = "{Binding Path = FileCluster}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation = "Horizontal">
-                            <CheckBox IsChecked = "{Binding Path = IsSelected, Mode = TwoWay}" Width = "20" Margin = "3 5 3 5"/>
-                            <TextBox Text = "{Binding Path = FileLocation, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
-                            <TextBox Text = "{Binding Path = FileName, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
-                            <TextBox Text = "{Binding Path = FileExtension, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
-                            <TextBlock Text = "{Binding Path = FilePath, Mode = OneWay}" Margin = "0 5 3 5"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                <ItemsControl ItemsSource = "{Binding Path = FileCluster}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel CanVerticallyScroll="True" Orientation="Horizontal">
+                                <CheckBox IsChecked = "{Binding Path = IsSelected, Mode = TwoWay}" Width = "20" Margin = "3 5 3 5"/>
+                                <TextBox Text = "{Binding Path = FileLocation, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
+                                <TextBox Text = "{Binding Path = FileName, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
+                                <TextBox Text = "{Binding Path = FileExtension, Mode = TwoWay}" Width = "100" Margin = "0 5 3 5"/>
+                                <TextBlock Text = "{Binding Path = FilePath, Mode = OneWay}" Margin = "0 5 3 5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 

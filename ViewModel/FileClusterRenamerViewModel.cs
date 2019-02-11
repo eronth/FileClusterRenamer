@@ -64,7 +64,7 @@ namespace FileClusterRenamer.ViewModel
 
         private void RepopulateFileList()
         {
-            // TODO clear old list.
+            // Clear old list.
             FileCluster.Clear();
             // TODO error handling.
             DirectoryInfo di = new DirectoryInfo(Folder);
