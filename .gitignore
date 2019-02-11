@@ -4,3 +4,4 @@
 
 obj/Debug/FileClusterRenamer.g.resources
 *.baml
+*.cache
