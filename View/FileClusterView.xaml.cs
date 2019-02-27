@@ -23,65 +23,21 @@ namespace FileClusterRenamer.View
     /// </summary>
     public partial class FileClusterView : UserControl
     {
-        public string SelectedFolderPath
-        {
-            get { return (string)GetValue(SelectedFolderPathProperty); }
-            set { SetValue(SelectedFolderPathProperty, value); }
-        }
-
-        public static readonly DependencyProperty SelectedFolderPathProperty =
-            DependencyProperty.Register("SelectedPath", typeof(string), typeof(FileClusterView), 
-                new FrameworkPropertyMetadata(new PropertyChangedCallback(SelectedFolderPathChanged))
-            {
-                BindsTwoWayByDefault = true,
-                DefaultUpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-            });
-
         public FileClusterView()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog() { IsFolderPicker = true, InitialDirectory = @"C:\Users" };
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
+        //private static void SelectedFolderPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    ((FileClusterView)d).txtFolderPath.Text = e.NewValue.ToString();
 
-                txtFolderPath.Text = dialog.FileName;
-                
-            }
-        }
-
-        private static void SelectedFolderPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((FileClusterView)d).txtFolderPath.Text = e.NewValue.ToString();
-
-            MessageBox.Show("Changed!");
-        }
+        //    MessageBox.Show("Changed!");
+        //}
 
         private void DoButton_Click(object sender, RoutedEventArgs e)
         {
             // Placeholder
         }
-
-
-        //public partial class PathSelector : UserControl
-        //{
-
-        //    private static void SelectedPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        //    {
-        //        MessageBox.Show("Changed!");
-        //        // How to update the values here??
-        //    }
-
-
-
-        //    private void SelectedPathTxtBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        //    {
-        //        SelectedPath = SelectedPathTxtBox.Text;
-        //    }
-        //}
-
     }
 }

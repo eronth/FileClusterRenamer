@@ -13,6 +13,14 @@ namespace FileClusterRenamer.Model
         
     }
 
+    public class OptionControls
+    {
+        public bool IsRemoveFront { get; set; }
+        public int RemoveFrontAmount { get; set; }
+        public bool IsRemoveBack { get; set; }
+        public int RemoveBackAmount { get; set; }
+    }
+
     public class FolderAccess
     {
         public string FolderLocation { get; set; }
@@ -20,6 +28,8 @@ namespace FileClusterRenamer.Model
 
     public class FileNode
     {
+        public string InitialFilePath { get; set; }
+
         public string FileLocation { get; set; }
        
         public string FileName { get; set; }
@@ -32,7 +42,7 @@ namespace FileClusterRenamer.Model
         {
             get
             {
-                return IsSelected?$@"{FileLocation}\{FileName}.{FileExtension}":string.Empty;
+                return IsSelected?$@"{FileLocation}\{FileName}{FileExtension}":string.Empty;
             }
         }
     }
