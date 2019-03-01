@@ -27,15 +27,15 @@
                     <ItemsControl ItemsSource = "{Binding Path = Options}">
                         <StackPanel HorizontalAlignment = "Left">
                             <StackPanel Orientation = "Horizontal">
-                                <CheckBox IsChecked = "{Binding Path = IsRemoveFront, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                                <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
                                 <TextBlock>Remove the first .</TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveFrontAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                                <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
                                 <TextBlock> characters.</TextBlock>
                             </StackPanel>
                             <StackPanel Orientation = "Horizontal">
-                                <CheckBox IsChecked = "{Binding Path = IsRemoveBack, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                                <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
                                 <TextBlock>Remove the last .</TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveBackAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                                <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
                                 <TextBlock> characters.</TextBlock>
                             </StackPanel>
                         </StackPanel>

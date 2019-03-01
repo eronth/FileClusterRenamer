@@ -44,7 +44,21 @@ namespace FileClusterRenamer.ViewModel
             {
                 if (file.IsSelected)
                 {
+                    string test1 = file.FileName.Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0);
+                    string test2 = file.FileName.Remove(file.FileName.Length - (Options.IsRemoveEnd ? Options.RemoveEndAmount : 0) - 1);
+
+                    file.FileName = file.FileName
+                        .Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0)
+                        .Remove(file.FileName.Length - (Options.IsRemoveEnd ? Options.RemoveEndAmount : 0) - 1);
+                    //    file.FileName.Substring(
+                    //        Options.IsRemoveFront ? Options.RemoveFrontAmount : 0,
+                    //        file.FileName.Length - (Options.IsRemoveFront ? Options.RemoveFrontAmount : 0) - (Options.IsRemoveBack ? Options.RemoveBackAmount : 0)
+                    //        );
+
                     File.Move(file.InitialFilePath, file.FilePath);
+
+                    file.InitialFilePath = file.FilePath;
+
                     printoutlist += file.InitialFilePath + "\n"
                         + file.FilePath + "\n";
                 }
@@ -59,6 +73,7 @@ namespace FileClusterRenamer.ViewModel
             {
                 _options = value;
                 RaisePropertyChangedEvent("Options");
+                MessageBox.Show("changed!");
             }
         }
 

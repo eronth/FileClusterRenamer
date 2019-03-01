@@ -15,10 +15,10 @@ namespace FileClusterRenamer.Model
 
     public class OptionControls
     {
-        public bool IsRemoveFront { get; set; }
-        public int RemoveFrontAmount { get; set; }
-        public bool IsRemoveBack { get; set; }
-        public int RemoveBackAmount { get; set; }
+        public bool IsRemoveStart { get; set; }
+        public int RemoveStartAmount { get; set; }
+        public bool IsRemoveEnd { get; set; }
+        public int RemoveEndAmount { get; set; }
     }
 
     public class FolderAccess
