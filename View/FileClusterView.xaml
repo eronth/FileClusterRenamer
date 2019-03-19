@@ -24,22 +24,24 @@
             </-->
             <StackPanel Orientation = "Vertical">
                 <Expander x:Name="expander1" Header="Additional options" Width="300">
-                    <ItemsControl ItemsSource = "{Binding Path = Options}">
-                        <StackPanel HorizontalAlignment = "Left">
-                            <StackPanel Orientation = "Horizontal">
-                                <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
-                                <TextBlock>Remove the first .</TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
-                                <TextBlock> characters.</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation = "Horizontal">
-                                <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
-                                <TextBlock>Remove the last .</TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
-                                <TextBlock> characters.</TextBlock>
-                            </StackPanel>
+                    <!--ItemsControl ItemsSource = "{Binding Path = Options}"-->
+                    <StackPanel DataContext="{Binding Path = Options}" HorizontalAlignment = "Left">
+                        <StackPanel Orientation = "Horizontal">
+                            <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                            <TextBlock xml:space="preserve">Remove the first </TextBlock>
+                            <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                            <TextBlock xml:space="preserve"> characters. Alternatively, remove as many characters as are in </TextBlock>
+                            <TextBox Text = "{Binding Path = RemoveStartTextLength, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
                         </StackPanel>
-                    </ItemsControl>
+                        <StackPanel Orientation = "Horizontal">
+                            <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                            <TextBlock xml:space="preserve">Remove the last </TextBlock>
+                            <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                            <TextBlock xml:space="preserve"> characters. Alternatively, remove as many characters as are in </TextBlock>
+                            <TextBox Text = "{Binding Path = RemoveEndTextLength, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--/ItemsControl-->
                 </Expander>
             </StackPanel>
 

@@ -28,6 +28,9 @@ namespace FileClusterRenamer.ViewModel
             ApplyClick = new DelegateCommand(ApplyChangesAction);
         }
 
+        /// <summary>
+        /// Action to perform when the Browse button is clicked.
+        /// </summary>
         private void BrowseFolderAction()
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog() { IsFolderPicker = true, InitialDirectory = @"C:\Users" };
@@ -37,6 +40,9 @@ namespace FileClusterRenamer.ViewModel
             }
         }
 
+        /// <summary>
+        /// Action to perform when hitting apply. Will update all checked items.
+        /// </summary>
         private void ApplyChangesAction()
         {
             String printoutlist = string.Empty;
@@ -44,27 +50,34 @@ namespace FileClusterRenamer.ViewModel
             {
                 if (file.IsSelected)
                 {
-                    string test1 = file.FileName.Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0);
-                    string test2 = file.FileName.Remove(file.FileName.Length - (Options.IsRemoveEnd ? Options.RemoveEndAmount : 0) - 1);
+                    // Using options, remove from the start and end of name.
+                    file.FileName = file.FileName.Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0);
+                    if (Options.IsRemoveEnd && (Options.RemoveEndAmount > 0 || Options.RemoveEndTextLength.Length > 0))
+                    {
+                        file.FileName = file.FileName
+                            .Remove(file.FileName.Length - (Options.RemoveEndAmount > 0 ? Options.RemoveEndAmount : Options.RemoveEndTextLength.Length));
+                    }
 
-                    file.FileName = file.FileName
-                        .Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0)
-                        .Remove(file.FileName.Length - (Options.IsRemoveEnd ? Options.RemoveEndAmount : 0) - 1);
-                    //    file.FileName.Substring(
-                    //        Options.IsRemoveFront ? Options.RemoveFrontAmount : 0,
-                    //        file.FileName.Length - (Options.IsRemoveFront ? Options.RemoveFrontAmount : 0) - (Options.IsRemoveBack ? Options.RemoveBackAmount : 0)
-                    //        );
+                    // Only bother to actually perform a move if the filepath is different.
+                    if (!file.InitialFilePath.Equals(file.FilePath))
+                    {
+                        File.Move(file.InitialFilePath, file.FilePath);
+                    }
 
-                    File.Move(file.InitialFilePath, file.FilePath);
+                    // TODO remove this debugging stuff.
+                    printoutlist += file.InitialFilePath + "\n"
+                        + file.FilePath + "\n";
 
                     file.InitialFilePath = file.FilePath;
 
-                    printoutlist += file.InitialFilePath + "\n"
-                        + file.FilePath + "\n";
                 }
             }
-            MessageBox.Show(printoutlist);
+            RepopulateFileList();
+            // Todo remove this debugging stuff.
+            //MessageBox.Show(printoutlist);
         }
+
+
         public OptionControls _options { get; set; } = new OptionControls();
         public OptionControls Options
         {
@@ -73,7 +86,7 @@ namespace FileClusterRenamer.ViewModel
             {
                 _options = value;
                 RaisePropertyChangedEvent("Options");
-                MessageBox.Show("changed!");
+                MessageBox.Show("Changed.");
             }
         }
 
@@ -104,7 +117,7 @@ namespace FileClusterRenamer.ViewModel
 
         public void LoadFileCluster()
         {
-            Folder = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            Folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             FileCluster = new ObservableCollection<FileNode>();
             RepopulateFileList();

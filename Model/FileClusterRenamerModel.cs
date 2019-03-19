@@ -16,9 +16,11 @@ namespace FileClusterRenamer.Model
     public class OptionControls
     {
         public bool IsRemoveStart { get; set; }
-        public int RemoveStartAmount { get; set; }
+        public int RemoveStartAmount { get; set; } = 1;
+        public string RemoveStartTextLength { get; set; }
         public bool IsRemoveEnd { get; set; }
-        public int RemoveEndAmount { get; set; }
+        public int RemoveEndAmount { get; set; } = 1;
+        public string RemoveEndTextLength { get; set; }
     }
 
     public class FolderAccess

@@ -28,13 +28,6 @@ namespace FileClusterRenamer.View
             InitializeComponent();
         }
 
-        //private static void SelectedFolderPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        //{
-        //    ((FileClusterView)d).txtFolderPath.Text = e.NewValue.ToString();
-
-        //    MessageBox.Show("Changed!");
-        //}
-
         private void DoButton_Click(object sender, RoutedEventArgs e)
         {
             // Placeholder
