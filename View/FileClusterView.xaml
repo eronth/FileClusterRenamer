@@ -23,25 +23,34 @@
                 <ComboBox x:Name="comboBox" Width="120"/>
             </-->
             <StackPanel Orientation = "Vertical">
-                <Expander x:Name="expander1" Header="Additional options" Width="300">
-                    <!--ItemsControl ItemsSource = "{Binding Path = Options}"-->
-                    <StackPanel DataContext="{Binding Path = Options}" HorizontalAlignment = "Left">
-                        <StackPanel Orientation = "Horizontal">
-                            <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
-                            <TextBlock xml:space="preserve">Remove the first </TextBlock>
-                            <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
-                            <TextBlock xml:space="preserve"> characters. Alternatively, remove as many characters as are in </TextBlock>
-                            <TextBox Text = "{Binding Path = RemoveStartTextLength, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                <Expander x:Name="OptionsExpander" Header="Additional options" Width="800" BorderThickness="1" BorderBrush="AliceBlue">
+                    <StackPanel Orientation="Horizontal" DataContext="{Binding Path = Options}">
+
+                        <StackPanel Width ="400" HorizontalAlignment = "Center" Margin = "2 2 2 2">
+                            <StackPanel Orientation = "Horizontal">
+                                <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                                <TextBlock xml:space="preserve">Remove the first </TextBlock>
+                                <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                                <TextBlock xml:space="preserve"> characters.</TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation = "Horizontal">
+                                <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
+                                <TextBlock xml:space="preserve">Remove the last </TextBlock>
+                                <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                                <TextBlock xml:space="preserve">characters.</TextBlock>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation = "Horizontal">
-                            <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
-                            <TextBlock xml:space="preserve">Remove the last </TextBlock>
-                            <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
-                            <TextBlock xml:space="preserve"> characters. Alternatively, remove as many characters as are in </TextBlock>
-                            <TextBox Text = "{Binding Path = RemoveEndTextLength, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+
+                        <StackPanel Width ="400" HorizontalAlignment="Center" Margin = "2 2 2 2">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock xml:space="preserve">There are </TextBlock>
+                                <TextBlock xml:space="preserve" Text = "{Binding Path = TextToMeasureLength, Mode = TwoWay}">x</TextBlock>
+                                <TextBlock xml:space="preserve"> characters in the following text:</TextBlock>
+                            </StackPanel>
+                            <TextBox Text = "{Binding Path = TextToMeasure, Mode = TwoWay}" Width = "200" Margin="2 2 2 2"/>
                         </StackPanel>
+                    
                     </StackPanel>
-                    <!--/ItemsControl-->
                 </Expander>
             </StackPanel>
 

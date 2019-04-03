@@ -17,10 +17,22 @@ namespace FileClusterRenamer.Model
     {
         public bool IsRemoveStart { get; set; }
         public int RemoveStartAmount { get; set; } = 1;
-        public string RemoveStartTextLength { get; set; }
         public bool IsRemoveEnd { get; set; }
         public int RemoveEndAmount { get; set; } = 1;
-        public string RemoveEndTextLength { get; set; }
+        private string _textToMeasure = string.Empty;
+        public string TextToMeasure
+        {
+            get
+            {
+                return _textToMeasure;
+            }
+            set
+            {
+                _textToMeasure = value;
+                TextToMeasureLength = _textToMeasure.Length;
+            }
+        }
+        public int TextToMeasureLength { get; set; }
     }
 
     public class FolderAccess

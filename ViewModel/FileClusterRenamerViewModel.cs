@@ -52,10 +52,10 @@ namespace FileClusterRenamer.ViewModel
                 {
                     // Using options, remove from the start and end of name.
                     file.FileName = file.FileName.Remove(0, Options.IsRemoveStart ? Options.RemoveStartAmount : 0);
-                    if (Options.IsRemoveEnd && (Options.RemoveEndAmount > 0 || Options.RemoveEndTextLength.Length > 0))
+                    if (Options.IsRemoveEnd && (Options.RemoveEndAmount > 0))
                     {
                         file.FileName = file.FileName
-                            .Remove(file.FileName.Length - (Options.RemoveEndAmount > 0 ? Options.RemoveEndAmount : Options.RemoveEndTextLength.Length));
+                            .Remove(file.FileName.Length -  Options.RemoveEndAmount);
                     }
 
                     // Only bother to actually perform a move if the filepath is different.
