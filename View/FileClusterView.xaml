@@ -30,26 +30,25 @@
                             <StackPanel Orientation = "Horizontal">
                                 <CheckBox IsChecked = "{Binding Path = IsRemoveStart, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
                                 <TextBlock xml:space="preserve">Remove the first </TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
-                                <TextBlock xml:space="preserve"> characters.</TextBlock>
+                                <TextBox Text = "{Binding Path = RemoveStartAmount, Mode = TwoWay}" Width = "15" Margin = "0 2 3 2"/>
+                                <TextBlock xml:space="preserve">characters.</TextBlock>
                             </StackPanel>
                             <StackPanel Orientation = "Horizontal">
                                 <CheckBox IsChecked = "{Binding Path = IsRemoveEnd, Mode = TwoWay}" Width = "20" Margin = "3 2 3 2"/>
                                 <TextBlock xml:space="preserve">Remove the last </TextBlock>
-                                <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "20" Margin = "0 2 3 2"/>
+                                <TextBox Text = "{Binding Path = RemoveEndAmount, Mode = TwoWay}" Width = "15" Margin = "0 2 3 2"/>
                                 <TextBlock xml:space="preserve">characters.</TextBlock>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel Width ="400" HorizontalAlignment="Center" Margin = "2 2 2 2">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock xml:space="preserve">There are </TextBlock>
-                                <TextBlock xml:space="preserve" Text = "{Binding Path = TextToMeasureLength, Mode = TwoWay}">x</TextBlock>
-                                <TextBlock xml:space="preserve"> characters in the following text:</TextBlock>
-                            </StackPanel>
-                            <TextBox Text = "{Binding Path = TextToMeasure, Mode = TwoWay}" Width = "200" Margin="2 2 2 2"/>
+                            <TextBlock>
+                                There are <Run Text="{Binding ElementName=TextToMeasure, Path=Text.Length, Mode=OneWay}"/> 
+                                characters in the following text:
+                            </TextBlock>
+                            <TextBox Name="TextToMeasure" Text="{Binding Path=TextToMeasure, Mode=TwoWay}" Width="200" Margin="2 2 2 2"/>
                         </StackPanel>
-                    
+
                     </StackPanel>
                 </Expander>
             </StackPanel>
